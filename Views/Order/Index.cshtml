@@ -1,0 +1,79 @@
+﻿@model List<NorthwindBasedWebApplication.Models.Dtos.OrderDtos.ReadOrderDto>
+
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.3/js/dataTables.min.js"></script>
+
+
+    <style>
+        .table th, .table td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px; /* Adjust this value as needed */
+        }
+
+        /* Add margin-right based on screen size */
+        @@media (min-width: 1200px) {
+            .container {
+                margin-right: 750px; /* Apply margin-right as per the requirement */
+            }
+        }
+    </style>
+</head>
+
+<div class="container mt-4">
+    <h4 class="pb-3">Orders</h4>
+    <table id="mytable" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Order Date</th>
+                <th>Required Date</th>
+                <th>Shipped Date</th>
+                <th>Freight</th>
+                <th>Ship Name</th>
+                <th>Ship Address</th>
+                <th>Ship City</th>
+                <th>Ship Region</th>
+                <th>Ship Postal Code</th>
+                <th>Ship Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.RequiredDate</td>
+                    <td>@item.ShippedDate</td>
+                    <td>@item.Freight</td>
+                    <td>@item.ShipName</td>
+                    <td>@item.ShipAddress</td>
+                    <td>@item.ShipCity</td>
+                    <td>@item.ShipRegion</td>
+                    <td>@item.ShipPostalCode</td>
+                    <td>@item.ShipCountry</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm mb-1" style="margin-right:0.3rem;">Read</a>
+                        <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm mb-1" style="margin-right:0.3rem;">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm ">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+
+    $("#mytable").DataTable();
+</script>
