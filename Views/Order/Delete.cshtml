@@ -1,0 +1,285 @@
+﻿@model NorthwindBasedWebApplication.Models.Dtos.OrderDtos.ReadOrderDto
+
+
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <style>
+        .input-group-text i {
+            padding: 3px;
+            font-size: 1.5em; /* Adjust size as needed */
+        }
+
+    </style>
+
+</head>
+
+
+
+
+
+<style>
+
+</style>
+
+<form asp-action="DeleteConfirmed">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Delete Order</h1>
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+
+            <div class="col-2">
+                <label asp-for="Id" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Id" disabled/>
+                </div>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="OrderDate" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="OrderDate" disabled/>
+                </div>
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="col-2">
+                <label asp-for="RequiredDate" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="RequiredDate" type="date" disabled/>
+                </div>
+                <span asp-validation-for="RequiredDate" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ShippedDate" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShippedDate" type="date" disabled/>
+                </div>
+                <span asp-validation-for="ShippedDate" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Freight" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Freight" disabled/>
+                </div>
+                <span asp-validation-for="Freight" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="ShipName" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShipName" disabled/>
+                </div>
+                <span asp-validation-for="ShipName" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ShipAddress" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShipAddress" disabled/>
+                </div>
+                <span asp-validation-for="ShipAddress" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="ShipCity" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShipCity" disabled/>
+                </div>
+                <span asp-validation-for="ShipCity" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="ShipRegion" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShipRegion" disabled/>
+                </div>
+                <span asp-validation-for="ShipRegion" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="ShipPostalCode" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShipPostalCode" disabled/>
+                </div>
+                <span asp-validation-for="ShipPostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ShipCountry" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShipCountry" disabled/>
+                </div>
+                <span asp-validation-for="ShipCountry" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="EmployeeId" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="EmployeeId" disabled/>
+                </div>
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ShipVia" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ShipVia" disabled/>
+                </div>
+                <span asp-validation-for="ShipVia" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="CustomerId" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="CustomerId" disabled/>
+                </div>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="PictureUrl" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="PictureUrl" disabled />
+                </div>
+                <span asp-validation-for="PictureUrl" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-5 offset-2">
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
+            </div>
+
+            <div class="col-5">
+                <a asp-controller="Order" asp-action="Index" class="btn btn-outline-primary">Back To Orders</a>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
