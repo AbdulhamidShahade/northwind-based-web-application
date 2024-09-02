@@ -1,4 +1,5 @@
-﻿using FullWebProjectWithAPI.Web.Models.DTOs.CustomerDTOs;
+﻿
+using NorthwindBasedWebApplication.Models.Dtos.CustomerDtos;
 using System.Linq.Expressions;
 
 namespace FullWebProjectWithAPI.Web.Services.IService
