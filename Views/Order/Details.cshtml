@@ -1,0 +1,416 @@
+﻿@model NorthwindBasedWebApplication.Models.Dtos.OrderDtos.ReadOrderDto
+
+
+
+<head>
+    <style>
+        .project-info-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .btn-circle {
+            padding: 0;
+        }
+
+        .project-image {
+            max-width: 100%;
+            border-radius: 0.375rem;
+        }
+
+
+
+        .table th, .table td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px; /* Adjust this value as needed */
+        }
+
+        /* Add margin-right based on screen size */
+        @@media (min-width: 1200px) {
+            .container {
+                margin-right: 600px; /* Apply margin-right as per the requirement */
+            }
+        }
+    </style>
+</head>
+
+
+@* <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2><stong>Order Id: </stong>@Model.Id</h2>
+            <p><strong>Order Date: </strong>@Model.OrderDate</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Required Date: </strong> @Model.RequiredDate </li>
+                <li class="list-group-item"><strong>Shipped Date: </strong> @Model.ShippedDate</li>
+                <li class="list-group-item"><strong>Freight: </strong> @Model.Freight</li>
+                <li class="list-group-item"><strong>Ship Name: </strong> @Model.ShipName</li>
+                <li class="list-group-item"><strong>Ship Address: </strong> @Model.ShipAddress</li>
+                <li class="list-group-item"><strong>Ship City: </strong> @Model.ShipCity</li>
+                <li class="list-group-item"><strong>Ship Region: </strong> @Model.ShipRegion</li>
+                <li class="list-group-item"><strong>Ship Postal Code: </strong> @Model.ShipPostalCode</li>
+                <li class="list-group-item"><strong>Ship Country: </strong> @Model.ShipCountry</li>
+                
+                <li class="list-group-item">
+                    <strong>Shipper Information: </strong>
+                    <br />
+
+                    <br />
+                    <h5><strong>Shipper Id: </strong>@Model.ShipVia</h5>
+                    <hr />
+                    <ul>
+                        <li><strong>Company Name: </strong> @Model.Shipper.CompanyName</li>
+                        <li><strong>Phone: </strong> @Model.Shipper.Phone</li>
+                    </ul>
+                </li>
+
+
+                <li class="list-group-item">
+                    <strong>Employee Information: </strong>
+                    <br />
+
+                    <br />
+                    <h5><strong>Employee Id: </strong>@Model.EmployeeId</h5>
+                    <hr />
+                    <ul>
+                        <li class="list-group-item"><strong>Last Name: </strong> @Model.Employee.LastName </li>
+                        <li class="list-group-item"><strong>First Name: </strong> @Model.Employee.FirstName</li>
+                        <li class="list-group-item"><strong>Title: </strong> @Model.Employee.Title</li>
+                        <li class="list-group-item"><strong>Title of Courtesy: </strong> @Model.Employee.TitleOfCourtesy</li>
+                        <li class="list-group-item"><strong>Birth Date: </strong> @Model.Employee.BirthDate</li>
+                        <li class="list-group-item"><strong>Hire Date: </strong> @Model.Employee.HireDate</li>
+                        <li class="list-group-item"><strong>City: </strong> @Model.Employee.City</li>
+                        <li class="list-group-item"><strong>Region: </strong> @Model.Employee.Region</li>
+                        <li class="list-group-item"><strong>Postal Code: </strong> @Model.Employee.PostalCode</li>
+                        <li class="list-group-item"><strong>Country: </strong> @Model.Employee.Country</li>
+                        <li class="list-group-item"><strong>Home Phone: </strong> @Model.Employee.HomePhone</li>
+                        <li class="list-group-item"><strong>Extension: </strong> @Model.Employee.Extension</li>
+                        <li class="list-group-item"><strong>Notes: </strong> @Model.Employee.Notes</li>
+                    </ul>
+                </li>
+
+
+                <li class="list-group-item">
+                    <strong>Customer Information: </strong>
+                    <br />
+
+                    <br />
+                    <h5><strong>Id: </strong>@Model.CustomerId</h5>
+                    <p><strong>Customer Identification: </strong>@Model.Customer.CustomerId<p>
+                    <hr />
+                    <ul>
+                            <li class="list-group-item"><strong>Company Title: </strong> @Model.Customer.ContactTitle </li>
+                            <li class="list-group-item"><strong>Company Name: </strong> @Model.Customer.CompanyName</li>
+                            <li class="list-group-item"><strong>Contact Name: </strong> @Model.Customer.ContactName</li>
+                            <li class="list-group-item"><strong>Contact Title: </strong> @Model.Customer.ContactTitle</li>
+                            <li class="list-group-item"><strong>Address: </strong> @Model.Customer.Address</li>
+                            <li class="list-group-item"><strong>Region: </strong> @Model.Customer.Region</li>
+                            <li class="list-group-item"><strong>Postal Code: </strong> @Model.Customer.PostalCode</li>
+                            <li class="list-group-item"><strong>Country: </strong> @Model.Customer.Country</li>
+                            <li class="list-group-item"><strong>Phone: </strong> @Model.Customer.Phone</li>
+                            <li class="list-group-item"><strong>Fax: </strong> @Model.Customer.Fax</li>
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="list-group-item">
+                    <strong>Order Details: </strong>
+                    <br />
+
+                    @foreach (var item in Model.OrderDetails)
+                    {
+                        <br />
+                        <h5><strong>Order Id: </strong>@item.OrderId</h5>
+                        <h5><strong>Product Id:</strong>@item.ProductId</h5>
+                        <hr />
+                        <ul>
+                            <li><strong>Unit Price: </strong> @item.UnitPrice</li>
+                            <li><strong>Quantity: </strong> @item.Quantity</li>
+                            <li><strong>Discount: </strong> @item.Discount</li>
+                        </ul>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div> *@
+
+    @*  <div class="row mt-4">
+    <div class="col">
+    <h3>Reviews</h3>
+    <div class="list-group">
+    @foreach (var review in Model.Reviews)
+    {
+    <div class="list-group-item">
+    <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">@review.ReviewerName</h5>
+    <small>@review.Date.ToString("yyyy-MM-dd")</small>
+    </div>
+    <p class="mb-1">Rating: @review.Rating</p>
+    <p class="mb-1">@review.Comment</p>
+    </div>
+    }
+    </div>
+    </div>
+    </div> *@
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+
+            <h4><strong>Order Id: </strong>@Model.Id</h4>
+            <hr />
+
+            <div class="project-info-box" style="height:450px;">
+                <p><strong>Order Date: </strong> @Model.OrderDate </p>
+                <p><strong>Required Date: </strong> @Model.RequiredDate</p>
+                <p><strong>Shipped Date: </strong> @Model.ShippedDate</p>
+                <p><strong>Freight: </strong> @Model.Freight</p>
+                <p><strong>Ship Name: </strong> @Model.ShipName</p>
+                <p><strong>Ship Address: </strong> @Model.ShipAddress</p>
+                <p><strong>Ship City: </strong> @Model.ShipCity</p>
+                <p><strong>Ship Region: </strong> @Model.ShipRegion</p>
+                <p><strong>Ship Postal Code: </strong> @Model.ShipPostalCode</p>
+                <p><strong>Ship Country: </strong> @Model.ShipCountry</p>
+
+
+
+            </div><!-- / project-info-box -->
+
+
+        </div><!-- / column -->
+        @* <div class="col-md-7">
+        <img src="@Model.PictureUrl" alt="project-image" class="project-image mb-3" style="height:450px;width:500px;">
+
+        </div><!-- / column --> *@
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-5">
+
+            <h4 class="pt-5"><strong>Shipper Id: </strong>@Model.ShipVia</h4>
+            <hr />
+
+            <div class="project-info-box" style="height:450px;">
+                <p><strong>Company Name: </strong> @Model.ShipperDto.CompanyName </p>
+                <p><strong>Phone: </strong> @Model.ShipperDto.Phone</p>
+
+
+
+            </div><!-- / project-info-box -->
+
+
+        </div><!-- / column -->
+        @* <div class="col-md-7">
+        <img src="@Model.PictureUrl" alt="project-image" class="project-image mb-3" style="height:450px;width:500px;">
+
+        </div><!-- / column --> *@
+
+    </div>
+
+    
+
+
+    <div class="row">
+        <div class="col-md-5">
+
+            <h4 class="pt-5"><strong>Employee Id: </strong>@Model.EmployeeId</h4>
+            <hr />
+
+            <div class="project-info-box" style="height:450px;">
+                <p><strong>Last Name: </strong> @Model.EmployeeDto.LastName </p>
+                <p><strong>First Name: </strong> @Model.EmployeeDto.FirstName</p>
+                <p><strong>Title: </strong> @Model.EmployeeDto.Title</p>
+                <p><strong>Title Of Courtesy: </strong> @Model.EmployeeDto.TitleOfCourtesy</p>
+                <p><strong>Birth Date: </strong> @Model.EmployeeDto.BirthDate</p>
+                <p><strong>Hire Date: </strong> @Model.EmployeeDto.HireDate</p>
+                <p><strong>City: </strong> @Model.EmployeeDto.City</p>
+                <p><strong>Region: </strong> @Model.EmployeeDto.Region</p>
+                <p><strong>Postal Code: </strong> @Model.EmployeeDto.PostalCode</p>
+                <p><strong>Country: </strong> @Model.EmployeeDto.Country</p>
+                <p><strong>Home Phone: </strong> @Model.EmployeeDto.HomePhone</p>
+
+
+
+            </div><!-- / project-info-box -->
+
+
+        </div><!-- / column -->
+        @* <div class="col-md-7">
+        <img src="@Model.PictureUrl" alt="project-image" class="project-image mb-3" style="height:450px;width:500px;">
+
+        </div><!-- / column --> *@
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-5">
+
+            <h4 class="pt-5"><strong>Customer Id: </strong>@Model.CustomerId</h4>
+            <hr />
+
+            <div class="project-info-box" style="height:450px;">
+                <p><strong>Company Title: </strong> @Model.CustomerDto.ContactTitle </p>
+                <p><strong>Company Name: </strong> @Model.CustomerDto.CompanyName</p>
+                <p><strong>Contact Name: </strong> @Model.CustomerDto.ContactName</p>
+                <p><strong>Contact Title: </strong> @Model.CustomerDto.ContactTitle</p>
+                <p><strong>Address: </strong> @Model.CustomerDto.Address</p>
+                <p><strong>Region: </strong> @Model.CustomerDto.Region</p>
+                <p><strong>Postal Code: </strong> @Model.CustomerDto.PostalCode</p>
+                <p><strong>Country: </strong> @Model.CustomerDto.Country</p>
+                <p><strong>Phone: </strong> @Model.CustomerDto.Phone</p>
+                <p><strong>Fax: </strong> @Model.CustomerDto.Fax</p>
+
+
+            </div><!-- / project-info-box -->
+
+
+        </div><!-- / column -->
+        @* <div class="col-md-7">
+        <img src="@Model.PictureUrl" alt="project-image" class="project-image mb-3" style="height:450px;width:500px;">
+
+        </div><!-- / column --> *@
+    </div>
+</div>
+
+
+
+
+
+
+@* <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2><stong>Category Id: </stong>@Model.Id</h2>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Category Name: </strong> @Model.CategoryName </li>
+                <li class="list-group-item"><strong>Category Description: </strong> @Model.Description</li>
+
+                <li class="list-group-item">
+                    <strong>Order Details: </strong>
+                    <br />
+
+                    @foreach (var item in Model.Products)
+                    {
+                        <br />
+                        <h5><strong>Product Id: </strong>@item.Id</h5>
+                        <hr />
+                        <ul>
+                            <li class="list-group-item"><strong>Quantity Per Unit: </strong> @item.QuantityPerUnit </li>
+                            <li class="list-group-item"><strong>Unit Price: </strong> @item.UnitPrice</li>
+                            <li class="list-group-item"><strong>Units in Stock: </strong> @item.UnitsInStock</li>
+                            <li class="list-group-item"><strong>Units on Order: </strong> @item.UnitsOnOrder</li>
+                            <li class="list-group-item"><strong>Reorder Level </strong> @item.ReorderLevel</li>
+                            <li class="list-group-item"><strong>Discontinued: </strong> @item.Discontinued</li>
+                        </ul>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div> *@
+
+@*  <div class="row mt-4">
+    <div class="col">
+    <h3>Reviews</h3>
+    <div class="list-group">
+    @foreach (var review in Model.Reviews)
+    {
+    <div class="list-group-item">
+    <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">@review.ReviewerName</h5>
+    <small>@review.Date.ToString("yyyy-MM-dd")</small>
+    </div>
+    <p class="mb-1">Rating: @review.Rating</p>
+    <p class="mb-1">@review.Comment</p>
+    </div>
+    }
+    </div>
+    </div>
+    </div> *@
+
+
+@* <div class="container mt-4">
+    <h4 class="pb-3">Orders</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Order Date</th>
+                <th>Required Date</th>
+                <th>Shipped Date</th>
+                <th>Freight</th>
+                <th>Ship Name</th>
+                <th>Ship Address</th>
+                <th>Ship City</th>
+                <th>Ship Region</th>
+                <th>Ship Postal Code</th>
+                <th>Ship Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.RequiredDate</td>
+                    <td>@item.ShippedDate</td>
+                    <td>@item.Freight</td>
+                    <td>@item.ShipName</td>
+                    <td>@item.ShipAddress</td>
+                    <td>@item.ShipCity</td>
+                    <td>@item.ShipRegion</td>
+                    <td>@item.ShipPostalCode</td>
+                    <td>@item.ShipCountry</td>
+                    @*                     <td style="width:200px">
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm mb-1" style="margin-right:0.3rem;">Read</a>
+                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm mb-1" style="margin-right:0.3rem;">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm ">Delete</a>
+                </td> *@
+                </tr>
+            }
