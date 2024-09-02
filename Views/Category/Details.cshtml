@@ -1,0 +1,181 @@
+﻿@model NorthwindBasedWebApplication.Models.Dtos.CategoryDtos.ReadCategoryDto
+
+
+
+
+
+<head>
+    <style>
+        .project-info-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .btn-circle {
+            padding: 0;
+        }
+
+        .project-image {
+            max-width: 100%;
+            border-radius: 0.375rem;
+        }
+
+
+        <style >
+        .table th, .table td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px; /* Adjust this value as needed */
+        }
+
+        /* Add margin-right based on screen size */
+        @@media (min-width: 1200px) {
+            .container {
+                margin-right: 400px; /* Apply margin-right as per the requirement */
+            }
+        }
+    </style>
+    </style>
+</head>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+
+
+            <div class="project-info-box" style="height:450px;">
+                <p><strong>Id: </strong> @Model.Id</p>
+                <p><strong>Category Name: </strong> @Model.CategoryName</p>
+                <p><strong>Category Description: </strong> @Model.Description</p>
+
+
+
+            </div><!-- / project-info-box -->
+
+
+        </div><!-- / column -->
+
+        <div class="col-md-7">
+            <img src="@Model.PictureUrl" alt="project-image" class="project-image mb-3" style="height:450px;width:500px;">
+
+        </div><!-- / column -->
+    </div>
+</div>
+
+
+
+
+
+
+@* <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2><stong>Category Id: </stong>@Model.Id</h2>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Category Name: </strong> @Model.CategoryName </li>
+                <li class="list-group-item"><strong>Category Description: </strong> @Model.Description</li>
+
+                <li class="list-group-item">
+                    <strong>Order Details: </strong>
+                    <br />
+
+                    @foreach (var item in Model.Products)
+                    {
+                        <br />
+                        <h5><strong>Product Id: </strong>@item.Id</h5>
+                        <hr />
+                        <ul>
+                            <li class="list-group-item"><strong>Quantity Per Unit: </strong> @item.QuantityPerUnit </li>
+                            <li class="list-group-item"><strong>Unit Price: </strong> @item.UnitPrice</li>
+                            <li class="list-group-item"><strong>Units in Stock: </strong> @item.UnitsInStock</li>
+                            <li class="list-group-item"><strong>Units on Order: </strong> @item.UnitsOnOrder</li>
+                            <li class="list-group-item"><strong>Reorder Level </strong> @item.ReorderLevel</li>
+                            <li class="list-group-item"><strong>Discontinued: </strong> @item.Discontinued</li>
+                        </ul>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div> *@
+
+@*  <div class="row mt-4">
+    <div class="col">
+    <h3>Reviews</h3>
+    <div class="list-group">
+    @foreach (var review in Model.Reviews)
+    {
+    <div class="list-group-item">
+    <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">@review.ReviewerName</h5>
+    <small>@review.Date.ToString("yyyy-MM-dd")</small>
+    </div>
+    <p class="mb-1">Rating: @review.Rating</p>
+    <p class="mb-1">@review.Comment</p>
+    </div>
+    }
+    </div>
+    </div>
+    </div> *@
+
+
+<div class="container mt-4">
+    <h4 class="pb-3">Products</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Quantity Per Unit</th>
+                <th>Unit Price</th>
+                <th>Units In Stock</th>
+                <th>Units On Order</th>
+                <th>Reorder Level</th>
+                <th>Discontinued</th>
+                <th>Category Id</th>
+                <th>Supplier Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ProductsDto)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.QuantityPerUnit</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.UnitsInStock</td>
+                    <td>@item.UnitsOnOrder</td>
+                    <td>@item.ReorderLevel</td>
+                    <td>@item.Discontinued</td>
+                    <td>@item.CategoryId</td>
+                    <td>@item.SupplierId</td>
+                    @*                     <td style="width:200px">
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm mb-1" style="margin-right:0.3rem;">Read</a>
+                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm mb-1" style="margin-right:0.3rem;">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm ">Delete</a>
+                </td> *@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
