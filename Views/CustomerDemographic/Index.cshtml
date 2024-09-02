@@ -1,0 +1,43 @@
+﻿@model List<NorthwindBasedWebApplication.Models.Dtos.CustomerDemographicDtos.ReadCustomerDemographicDto>
+
+
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+
+</head>
+
+<div class="container mt-4">
+    <h4 class="pb-3">Customer Demographics</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Customer Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @* <td><input type="checkbox" /></td> *@
+                        <td>@item.Id</td>
+                        <td>@item.CustomerDescription</td>
+                        <td style="width:200px">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm" style="margin-right:0.3rem;">Read</a>
+                            <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm" style="margin-right:0.3rem;">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
