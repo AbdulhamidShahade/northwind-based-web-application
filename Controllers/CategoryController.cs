@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using AutoMapper.Configuration.Conventions;
-using FullWebProjectWithAPI.Web.Models;
-using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Services.IService;
-using FullWebProjectWithAPI.Web.Utility;
+﻿
+using AutoMapper;
+
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Runtime.InteropServices;
+using NorthwindBasedWebApplication.Models;
+using NorthwindBasedWebApplication.Models.Dtos.CategoryDtos;
+using NorthwindBasedWebApplication.Services.IService;
+using NorthwindBasedWebApplication.Shared;
 
 namespace FullWebProjectWithAPI.Web.Controllers
 {
@@ -53,23 +53,6 @@ namespace FullWebProjectWithAPI.Web.Controllers
             return View();
         }
 
-
-        [HttpGet]
-        public IActionResult LoadData()
-        {
-            //var response = _categoryService.GetAllAsync<ApiResponse>(HttpContext.Session.GetString(Shared.SessionToken)); 
-
-
-            //var categories = JsonConvert.DeserializeObject<List<Cat>>(response.data.ToString());
-
-            var data = new List<Cat>()
-            {
-                new Cat(){Id = 1, CategoryName = "Fuck", Description = "Fuck" },
-                new Cat(){Id = 2, CategoryName = "Fuck", Description = "Fuck" }
-            };
-
-            return Json(new {data =  data});  
-        }
 
         [HttpPost]
         public async Task<ActionResult> Create(CreateCategoryDto createCategoryDto)
@@ -141,6 +124,17 @@ namespace FullWebProjectWithAPI.Web.Controllers
             {
                 return BadRequest("Failed");
             }
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> UserIndex()
+        {
+            var categories = await _categoryService.GetAllAsync<ApiResponse>(token: string.Empty);
+
+            var response = JsonConvert.DeserializeObject<List<ReadCategoryDto>>(categories.data.ToString());
+
+            return View(response);
         }
     }
 }
