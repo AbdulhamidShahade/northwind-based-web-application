@@ -1,0 +1,39 @@
+﻿<header>
+    @if (!Convert.ToBoolean(ViewData["Navbar"]))
+    {
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NorthwindBasedWebApplication</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark " asp-area="" asp-controller="Category" asp-action="Index">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark mx-g-auto" asp-area="" asp-controller="Authentication" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Register</a>
+                        </li>
+
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Movie" asp-action="Filter" style="padding-right: 25px;">
+                        <input name="searchString" type="text" class="form-control" placeholder="Search for a category..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
+                    @await Html.PartialAsync("_Identity")
+                </div>
+            </div>
+        </nav>
+    }
+    
+</header>
+
+
