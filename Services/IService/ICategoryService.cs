@@ -1,7 +1,8 @@
-﻿using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.CustomerDTOs;
+﻿
 
-namespace FullWebProjectWithAPI.Web.Services.IService
+using NorthwindBasedWebApplication.Models.Dtos.CategoryDtos;
+
+namespace NorthwindBasedWebApplication.Services.IService
 {
     public interface ICategoryService
     {

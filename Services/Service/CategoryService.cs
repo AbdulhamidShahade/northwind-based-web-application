@@ -1,11 +1,11 @@
-﻿using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.EmployeeDTOs;
+﻿
 using FullWebProjectWithAPI.Web.Services.Base;
-using FullWebProjectWithAPI.Web.Services.IService;
-using System.Linq.Expressions;
-using static System.Net.WebRequestMethods;
+using NorthwindBasedWebApplication.Models.Dtos.CategoryDtos;
+using NorthwindBasedWebApplication.Models;
+using NorthwindBasedWebApplication.Models.Enums;
+using NorthwindBasedWebApplication.Services.IService;
 
-namespace FullWebProjectWithAPI.Web.Services.Service
+namespace NorthwindBasedWebApplication.Services.Service
 {
     public class CategoryService : BaseService, ICategoryService
     {
@@ -22,9 +22,9 @@ namespace FullWebProjectWithAPI.Web.Services.Service
 
         public Task<T> CreateAsync<T>(CreateCategoryDto createDto, string token)
         {
-            return SendAsync<T>(new Models.ApiRequest
+            return SendAsync<T>(new ApiRequest
             {
-                ApiType = Models.Enums.ApiType.POST,
+                ApiType = ApiType.POST,
                 Data = createDto,
                 Token = token,
                 ApiUrl = $"{_url}/category"
@@ -33,9 +33,9 @@ namespace FullWebProjectWithAPI.Web.Services.Service
 
         public Task<T> DeleteAsync<T>(Func<int, int> func, string token)
         {
-            return SendAsync<T>(new Models.ApiRequest
+            return SendAsync<T>(new ApiRequest
             {
-                ApiType = Models.Enums.ApiType.DELETE,
+                ApiType = ApiType.DELETE,
                 Token = token,
                 ApiUrl = $"{_url}/category/{func(0)}"
             });
@@ -43,20 +43,20 @@ namespace FullWebProjectWithAPI.Web.Services.Service
 
         public Task<T> GetAllAsync<T>(string token)
         {
-            return SendAsync<T>(new Models.ApiRequest
+            return SendAsync<T>(new ApiRequest
             {
-                ApiType = Models.Enums.ApiType.GET,
+                ApiType = ApiType.GET,
                 Data = null,
-                Token = token,
-                ApiUrl = $"{_url}/category"
+                Token = string.Empty,
+                ApiUrl = $"{_url}/categories"
             });
         }
 
         public Task<T> GetAsync<T>(Func<int, int> func, string token)
         {
-            return SendAsync<T>(new Models.ApiRequest
+            return SendAsync<T>(new ApiRequest
             {
-                ApiType = Models.Enums.ApiType.GET,
+                ApiType = ApiType.GET,
                 Token = token,
                 ApiUrl = $"{_url}/category/{func(0)}"
             });
@@ -64,9 +64,9 @@ namespace FullWebProjectWithAPI.Web.Services.Service
 
         public Task<T> UpdateAsync<T>(Func<int, int> func, UpdateCategoryDto updateDto, string token)
         {
-            return SendAsync<T>(new Models.ApiRequest
+            return SendAsync<T>(new ApiRequest
             {
-                ApiType = Models.Enums.ApiType.PUT,
+                ApiType = ApiType.PUT,
                 Data = updateDto,
                 Token = token,
                 ApiUrl = $"{_url}/category/{func(0)}"

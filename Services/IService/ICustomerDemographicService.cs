@@ -1,5 +1,6 @@
-﻿using FullWebProjectWithAPI.Web.Models.DTOs.CustomerDemographicDTOs;
-using NorthwindTask.API.Models.DTOs.CustomerCustomerDemographicDTOs;
+﻿
+using NorthwindBasedWebApplication.Models.Dtos.CustomerDemographicDtos;
+
 using System.Linq.Expressions;
 
 namespace FullWebProjectWithAPI.Web.Services.IService

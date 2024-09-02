@@ -1,6 +1,5 @@
-﻿using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.ProductDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.RegionDTOs;
+﻿
+using NorthwindBasedWebApplication.Models.Dtos.RegionDtos;
 using System.Linq.Expressions;
 
 namespace FullWebProjectWithAPI.Web.Services.IService
