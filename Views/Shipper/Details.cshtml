@@ -1,0 +1,270 @@
+﻿@model NorthwindBasedWebApplication.Models.Dtos.ShipperDtos.ReadShipperDto
+
+
+
+@* <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2><stong>Shipper Id: </stong>@Model.Id</h2>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Company Name: </strong> @Model.CompanyName </li>
+                <li class="list-group-item"><strong>Phone: </strong> @Model.Phone</li>
+
+                <li class="list-group-item">
+                    <strong>Order Details: </strong>
+                    <br />
+
+                    @foreach (var item in Model.Orders)
+                    {
+                        <br />
+                        <h5><strong>Order Id: </strong>@item.Id</h5>
+                        <hr />
+                        <ul>
+                            <li class="list-group-item"><strong>Order Date: </strong>@item.OrderDate</li>
+                            <li class="list-group-item"><strong>Required Date: </strong> @item.RequiredDate </li>
+                            <li class="list-group-item"><strong>Shipped Date: </strong> @item.ShippedDate</li>
+                            <li class="list-group-item"><strong>Freight: </strong> @item.Freight</li>
+                            <li class="list-group-item"><strong>Ship Name: </strong> @item.ShipName</li>
+                            <li class="list-group-item"><strong>Ship Address: </strong> @item.ShipAddress</li>
+                            <li class="list-group-item"><strong>Ship City: </strong> @item.ShipCity</li>
+                            <li class="list-group-item"><strong>Ship Region: </strong> @item.ShipRegion</li>
+                            <li class="list-group-item"><strong>Ship Postal Code: </strong> @item.ShipPostalCode</li>
+                            <li class="list-group-item"><strong>Ship Country: </strong> @item.ShipCountry</li>
+                            <li class="list-group-item"><strong>Employee Id: </strong> @item.EmployeeId</li>
+                            <li class="list-group-item"><strong>Customer Id: </strong> @item.CustomerId</li>
+                            <li class="list-group-item"><strong>Shipper Id: </strong> @item.ShipVia</li>
+                        </ul>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div> *@
+
+    @*  <div class="row mt-4">
+    <div class="col">
+    <h3>Reviews</h3>
+    <div class="list-group">
+    @foreach (var review in Model.Reviews)
+    {
+    <div class="list-group-item">
+    <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">@review.ReviewerName</h5>
+    <small>@review.Date.ToString("yyyy-MM-dd")</small>
+    </div>
+    <p class="mb-1">Rating: @review.Rating</p>
+    <p class="mb-1">@review.Comment</p>
+    </div>
+    }
+    </div>
+    </div>
+    </div> *@
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+    <style>
+        .project-info-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .btn-circle {
+            padding: 0;
+        }
+
+        .project-image {
+            max-width: 100%;
+            border-radius: 0.375rem;
+        }
+
+
+
+        .table th, .table td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px; /* Adjust this value as needed */
+        }
+
+        /* Add margin-right based on screen size */
+        @@media (min-width: 1200px) {
+            .container {
+                margin-right: 700px; /* Apply margin-right as per the requirement */
+            }
+        }
+    </style>
+</head>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+
+            <h4 class="pb-3"><strong>Shipper Id: </strong>@Model.Id</h4>
+
+            <div class="project-info-box" style="height:450px;">
+                <p><strong>Company Name: </strong> @Model.CompanyName </p>
+                <p><strong>Phone: </strong> @Model.Phone</p>
+
+            </div><!-- / project-info-box -->
+
+
+        </div><!-- / column -->
+        @* <div class="col-md-7">
+        <img src="@Model.PictureUrl" alt="project-image" class="project-image mb-3" style="height:450px;width:500px;">
+
+        </div><!-- / column --> *@
+    </div>
+</div>
+
+
+
+
+
+
+@* <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2><stong>Category Id: </stong>@Model.Id</h2>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Category Name: </strong> @Model.CategoryName </li>
+                <li class="list-group-item"><strong>Category Description: </strong> @Model.Description</li>
+
+                <li class="list-group-item">
+                    <strong>Order Details: </strong>
+                    <br />
+
+                    @foreach (var item in Model.Products)
+                    {
+                        <br />
+                        <h5><strong>Product Id: </strong>@item.Id</h5>
+                        <hr />
+                        <ul>
+                            <li class="list-group-item"><strong>Quantity Per Unit: </strong> @item.QuantityPerUnit </li>
+                            <li class="list-group-item"><strong>Unit Price: </strong> @item.UnitPrice</li>
+                            <li class="list-group-item"><strong>Units in Stock: </strong> @item.UnitsInStock</li>
+                            <li class="list-group-item"><strong>Units on Order: </strong> @item.UnitsOnOrder</li>
+                            <li class="list-group-item"><strong>Reorder Level </strong> @item.ReorderLevel</li>
+                            <li class="list-group-item"><strong>Discontinued: </strong> @item.Discontinued</li>
+                        </ul>
+                    }
+                </li>
+            </ul>
+        </div>
+    </div> *@
+
+@*  <div class="row mt-4">
+    <div class="col">
+    <h3>Reviews</h3>
+    <div class="list-group">
+    @foreach (var review in Model.Reviews)
+    {
+    <div class="list-group-item">
+    <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">@review.ReviewerName</h5>
+    <small>@review.Date.ToString("yyyy-MM-dd")</small>
+    </div>
+    <p class="mb-1">Rating: @review.Rating</p>
+    <p class="mb-1">@review.Comment</p>
+    </div>
+    }
+    </div>
+    </div>
+    </div> *@
+
+
+<div class="container mt-4">
+    <h4 class="pb-3">Orders</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Order Date</th>
+                <th>Required Date</th>
+                <th>Shipped Date</th>
+                <th>Freight</th>
+                <th>Ship Name</th>
+                <th>Ship Address</th>
+                <th>Ship City</th>
+                <th>Ship Region</th>
+                <th>Ship Postal Code</th>
+                <th>Ship Country</th>
+                <th>Employee Id</th>
+                <th>Shipper Id</th> <!-- Added Actions header -->
+                <th>Customer Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrdersDto)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.RequiredDate</td>
+                    <td>@item.ShippedDate</td>
+                    <td>@item.Freight</td>
+                    <td>@item.ShipName</td>
+                    <td>@item.ShipAddress</td>
+                    <td>@item.ShipCity</td>
+                    <td>@item.ShipRegion</td>
+                    <td>@item.ShipPostalCode</td>
+                    <td>@item.ShipCountry</td>
+                    <td>@item.EmployeeId</td>
+                    <td>@item.ShipVia</td>
+                    <td>@item.CustomerId</td>
+                    @*                     <td style="width:200px">
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm mb-1" style="margin-right:0.3rem;">Read</a>
+                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm mb-1" style="margin-right:0.3rem;">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm ">Delete</a>
+                </td> *@
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
