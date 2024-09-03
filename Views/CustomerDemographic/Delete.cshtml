@@ -1,0 +1,86 @@
+﻿@model NorthwindBasedWebApplication.Models.Dtos.CustomerDemographicDtos.ReadCustomerDemographicDto
+
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <style>
+        .input-group-text i {
+            padding: 3px;
+            font-size: 1.5em;
+        }
+
+    </style>
+
+</head>
+
+<form asp-action="DeleteConfirmed">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Delete Customer Demographic</h1>
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Id" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Id" disabled/>
+                </div>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="CustomerDescription" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="CustomerDescription" />
+                </div>
+                <span asp-validation-for="CustomerDescription" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="PictureUrl" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="PictureUrl" />
+                </div>
+                <span asp-validation-for="PictureUrl" class="text-danger"></span>
+            </div>
+
+            <div class="col-5 offset-2">
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
+            </div>
+
+            <div class="col-5">
+                <a asp-controller="CustomerDemographic" asp-action="Index" class="btn btn-outline-primary">Back To Customers Demographics</a>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
