@@ -1,0 +1,22 @@
+﻿@model List<NorthwindBasedWebApplication.Models.Dtos.ProductDtos.ReadProductDto>
+
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var product in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id"><img src="@product.PictureUrl" class="card-img-top" alt="@product.ProductName"></a>
+                    <div class="card-header">
+                        <h5>@product.ProductName</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@product.UnitPrice</li>
+                        <li class="list-group-item">@product.ReorderLevel</li>
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+</div>
