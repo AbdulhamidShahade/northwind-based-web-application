@@ -1,0 +1,244 @@
+﻿@model NorthwindBasedWebApplication.Models.Dtos.SupplierDtos.ReadSupplierDto
+
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <style>
+        .input-group-text i {
+            padding: 3px;
+            font-size: 1.5em;
+        }
+
+    </style>
+
+</head>
+
+
+
+
+
+<style>
+
+</style>
+
+<form asp-action="DeleteConfirmed">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Delete Supplier</h1>
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+            <div class="col-2">
+                <label asp-for="Id" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Id" disabled/>
+                </div>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="CompanyName" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="CompanyName" disabled/>
+                </div>
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+
+            @* <div class="col-2">
+            <label asp-for="CompanyName" class="control-label"></label>
+            </div> *@
+            @* <div class="col-10 pb-3">
+            <select asp-for="CompanyName" class="form-select">
+            <option disabled selected>--Select Villa--</option>
+            </select>
+            <span asp-validation-for="Address" class="text-danger"></span>
+            </div> *@
+
+            <div class="col-2">
+                <label asp-for="ContactName" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-buildings'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="ContactName" disabled/>
+                </div>
+                <span asp-validation-for="ContactName" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="col-2">
+                <label asp-for="Address" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bxs-contact'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Address" disabled/>
+                </div>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="City" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="City" disabled/>
+                </div>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Region" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bxs-conversation'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Region" disabled/>
+                </div>
+                <span asp-validation-for="Region" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="PostalCode" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-location-plus'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="PostalCode" disabled/>
+                </div>
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Country" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bxs-city'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Country" disabled/>
+                </div>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Phone" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Phone" disabled/>
+                </div>
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Fax" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-barcode'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="Fax" disabled/>
+                </div>
+                <span asp-validation-for="Fax" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="HomePage" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="HomePage" disabled/>
+                </div>
+                <span asp-validation-for="HomePage" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-2">
+                <label asp-for="PictureUrl" class="control-label" style="font-size:1.3rem"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class='bx bx-id-card'></i>
+                        </span>
+                    </div>
+                    <input class="form-control" asp-for="PictureUrl" disabled />
+                </div>
+                <span asp-validation-for="PictureUrl" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="col-5 offset-2">
+                <input type="submit" value="Delete" class="btn btn-success form-control" />
+            </div>
+
+            <div class="col-5">
+                <a asp-controller="Supplier" asp-action="Index" class="btn btn-outline-primary">Back To Suppliers</a>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
