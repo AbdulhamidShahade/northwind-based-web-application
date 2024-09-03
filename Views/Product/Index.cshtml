@@ -1,0 +1,66 @@
+﻿@model List<NorthwindBasedWebApplication.Models.Dtos.ProductDtos.ReadProductDto>
+
+@{
+    ViewData["Navbar"] = true;
+}
+
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .table th, .table td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        @@media (min-width: 1200px) {
+            .container {
+                margin-right: 200px; 
+            }
+        }
+    </style>
+</head>
+
+<div class="container mt-4">
+    <h4 class="pb-3">Products</h4>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Quantity Per Unit</th>
+                <th>Unit Price</th>
+                <th>Units In Stock</th>
+                <th>Units On Order</th>
+                <th>Reorder Level</th>
+                <th>Discontinued</th>
+                <th>Category Id</th>
+                <th>Supplier Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.QuantityPerUnit</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.UnitsInStock</td>
+                    <td>@item.UnitsOnOrder</td>
+                    <td>@item.ReorderLevel</td>
+                    <td>@item.Discontinued</td>
+                    <td>@item.CategoryId</td>
+                    <td>@item.SupplierId</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-sm mb-1" style="margin-right:0.3rem;">Read</a>
+                        <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm mb-1" style="margin-right:0.3rem;">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm ">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
