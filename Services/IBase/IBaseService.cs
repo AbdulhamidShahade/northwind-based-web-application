@@ -1,4 +1,5 @@
 ﻿using FullWebProjectWithAPI.Web.Models;
+using NorthwindBasedWebApplication.Models;
 using System.Linq.Expressions;
 
 namespace FullWebProjectWithAPI.Web.Services.IBase

@@ -1,6 +1,8 @@
 ﻿using FullWebProjectWithAPI.Web.Models;
 using FullWebProjectWithAPI.Web.Services.IBase;
 using Newtonsoft.Json;
+using NorthwindBasedWebApplication.Models;
+using NorthwindBasedWebApplication.Models.Enums;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
@@ -39,16 +41,16 @@ namespace FullWebProjectWithAPI.Web.Services.Base
 
                 switch (apiRequest.ApiType)
                 {
-                    case Models.Enums.ApiType.GET:
+                    case ApiType.GET:
                         message.Method = HttpMethod.Get;
                         break;
-                    case Models.Enums.ApiType.POST:
+                    case ApiType.POST:
                         message.Method = HttpMethod.Post;
                         break;
-                    case Models.Enums.ApiType.PUT:
+                    case ApiType.PUT:
                         message.Method = HttpMethod.Put;
                         break;
-                    case Models.Enums.ApiType.DELETE:
+                    case ApiType.DELETE:
                         message.Method = HttpMethod.Delete;
                         break;
                 }
@@ -67,16 +69,9 @@ namespace FullWebProjectWithAPI.Web.Services.Base
 
                 try
                 {
-                    ApiResponse response = JsonConvert.DeserializeObject<ApiResponse>(apiContent);
+                    T response = JsonConvert.DeserializeObject<T>(apiContent);
 
-                    if (apiResponse != null && (apiResponse.StatusCode == HttpStatusCode.BadRequest || apiResponse.StatusCode == HttpStatusCode.NotFound))
-                    {
-                        response.StatusCode = HttpStatusCode.BadRequest;
-                        response.IsSuccess = false;
-                        var res = JsonConvert.SerializeObject(response);
-                        var returnObj = JsonConvert.DeserializeObject<T>(res);
-                        return returnObj;
-                    }
+                    
                 }
 
                 catch (Exception ex)
