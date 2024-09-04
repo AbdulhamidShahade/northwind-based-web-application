@@ -88,14 +88,6 @@ namespace NorthwindBasedWebApplication.Models.Dtos.EmployeeDtos
         [Display(Name = "Notes")]
         public string? Notes { get; set; }
 
-
-
-
-
-
-        //Navigations Properties
-        [Display(Name = "Reports To")]
-        public int? ReportsTo { get; set; }
        
     }
 }
