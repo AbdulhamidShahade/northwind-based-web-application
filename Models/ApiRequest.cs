@@ -1,6 +1,8 @@
-﻿using FullWebProjectWithAPI.Web.Models.Enums;
+﻿
 
-namespace FullWebProjectWithAPI.Web.Models
+using NorthwindBasedWebApplication.Models.Enums;
+
+namespace NorthwindBasedWebApplication.Models
 {
     public class ApiRequest
     {

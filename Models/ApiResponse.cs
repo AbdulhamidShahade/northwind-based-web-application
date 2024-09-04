@@ -1,6 +1,7 @@
-﻿using System.Net;
+﻿using NorthwindBasedWebApplication.Models.Dtos.AuthenticationDtos;
+using System.Net;
 
-namespace FullWebProjectWithAPI.Web.Models
+namespace NorthwindBasedWebApplication.Models
 {
     public class ApiResponse
     {
