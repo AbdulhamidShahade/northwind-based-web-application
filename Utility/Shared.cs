@@ -1,4 +1,4 @@
-﻿namespace FullWebProjectWithAPI.Web.Utility
+﻿namespace NorthwindBasedWebApplication.Shared
 {
     public class Shared
     {
