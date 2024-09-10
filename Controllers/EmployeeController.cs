@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.CustomerDTOs;
 using FullWebProjectWithAPI.Web.Models;
 using FullWebProjectWithAPI.Web.Services.IService;
-using FullWebProjectWithAPI.Web.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using FullWebProjectWithAPI.Web.Models.DTOs.EmployeeDTOs;
+using NorthwindBasedWebApplication.Models;
+using NorthwindBasedWebApplication.Models.Dtos.EmployeeDtos;
+using NorthwindBasedWebApplication.Shared;
 
 namespace FullWebProjectWithAPI.Web.Controllers
 {
