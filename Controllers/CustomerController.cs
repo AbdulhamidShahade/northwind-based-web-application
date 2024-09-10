@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using FullWebProjectWithAPI.Web.Models;
-using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.CustomerDTOs;
 using FullWebProjectWithAPI.Web.Services.IService;
-using FullWebProjectWithAPI.Web.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NorthwindBasedWebApplication.Models;
+using NorthwindBasedWebApplication.Models.Dtos.CustomerDtos;
+using NorthwindBasedWebApplication.Shared;
 
 namespace FullWebProjectWithAPI.Web.Controllers
 {
@@ -26,23 +25,6 @@ namespace FullWebProjectWithAPI.Web.Controllers
         public async Task<IActionResult> Index()
         {
             return View();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> LoadData()
-        {
-
-            
-            var response = await _customerService.GetAllAsync<ApiResponse>(HttpContext.Session.GetString(Shared.SessionToken));
-            if (response == null || !response.IsSuccess)
-            {
-                return Json(new { data = new List<object>() });
-            }
-
-            var test = JsonConvert.DeserializeObject < List <custom>> (Convert.ToString(response.data));
-
-            return Json(new { data = test });
-
         }
 
 
