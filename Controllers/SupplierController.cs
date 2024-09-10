@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.CustomerDTOs;
 using FullWebProjectWithAPI.Web.Models;
 using FullWebProjectWithAPI.Web.Services.IService;
-using FullWebProjectWithAPI.Web.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using FullWebProjectWithAPI.Web.Models.DTOs.SupplierDTOs;
+using NorthwindBasedWebApplication.Models;
+using NorthwindBasedWebApplication.Models.Dtos.SupplierDtos;
+using NorthwindBasedWebApplication.Shared;
 
 namespace FullWebProjectWithAPI.Web.Controllers
 {
@@ -103,15 +102,15 @@ namespace FullWebProjectWithAPI.Web.Controllers
         {
             var response = await _supplierService.GetAsync<ApiResponse>(x => id, HttpContext.Session.GetString(Shared.SessionToken));
 
-            var category = JsonConvert.DeserializeObject<ReadSupplierDto>(response.data.ToString());
+            var supplier = JsonConvert.DeserializeObject<ReadSupplierDto>(response.data.ToString());
 
-            return View(category);
+            return View(supplier);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(ReadCategoryDto model)
+        public async Task<ActionResult> Delete(ReadSupplierDto model)
         {
             var response = await _supplierService.DeleteAsync<ApiResponse>(x => model.Id, HttpContext.Session.GetString(Shared.SessionToken));
 
