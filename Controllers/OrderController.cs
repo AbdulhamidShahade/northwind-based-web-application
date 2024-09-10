@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using FullWebProjectWithAPI.Web.Models.DTOs.CategoryDTOs;
-using FullWebProjectWithAPI.Web.Models.DTOs.EmployeeDTOs;
 using FullWebProjectWithAPI.Web.Models;
 using FullWebProjectWithAPI.Web.Services.IService;
-using FullWebProjectWithAPI.Web.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using FullWebProjectWithAPI.Web.Models.DTOs.OrderDTOs;
+using NorthwindBasedWebApplication.Models;
+using NorthwindBasedWebApplication.Models.Dtos.OrderDtos;
+using NorthwindBasedWebApplication.Shared;
 
 namespace FullWebProjectWithAPI.Web.Controllers
 {
@@ -111,7 +110,7 @@ namespace FullWebProjectWithAPI.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(ReadEmployeeDto model)
+        public async Task<ActionResult> Delete(ReadOrderDto model)
         {
             var response = await _orderService.DeleteAsync<ApiResponse>(x => model.Id, HttpContext.Session.GetString(Shared.SessionToken));
 
